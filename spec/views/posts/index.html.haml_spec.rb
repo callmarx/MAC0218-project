@@ -5,12 +5,12 @@ RSpec.describe "posts/index", type: :view do
     assign(:posts, [
       Post.create!(
         :body => "MyText",
-        :type => "Type",
+        :post_type => "Post Type",
         :user => nil
       ),
       Post.create!(
         :body => "MyText",
-        :type => "Type",
+        :post_type => "Post Type",
         :user => nil
       )
     ])
@@ -19,7 +19,7 @@ RSpec.describe "posts/index", type: :view do
   it "renders a list of posts" do
     render
     assert_select "tr>td", :text => "MyText".to_s, :count => 2
-    assert_select "tr>td", :text => "Type".to_s, :count => 2
+    assert_select "tr>td", :text => "Post Type".to_s, :count => 2
     assert_select "tr>td", :text => nil.to_s, :count => 2
   end
 end

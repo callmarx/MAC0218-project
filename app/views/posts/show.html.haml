@@ -4,11 +4,11 @@
   %b Body:
   = @post.body
 %p
-  %b Type:
-  = @post.type
+  %b Post type:
+  = @post.post_type
 %p
   %b User:
-  = @post.user
+  = @post.user.email
 
 = link_to 'Edit', edit_post_path(@post)
 \|

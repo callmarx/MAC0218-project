@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :post do
     body "MyText"
-    type ""
+    post_type "MyString"
     user nil
   end
 end
