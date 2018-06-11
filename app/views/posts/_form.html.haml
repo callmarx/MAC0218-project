@@ -11,6 +11,8 @@
     = f.text_area :body
   .field
     = f.label :post_type
+    -# ###!
+      Como :post_type é delimitado em 2 valores, utlizaremos o seguinte combobox:
     = f.select :post_type, [["offer", "offer"],["looking", "looking"]]
   .actions
     = f.submit 'Save'
