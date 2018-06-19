@@ -23,7 +23,9 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 
+# Flexible authentication solution for Rails with Warden http://blog.plataformatec.com.br/tag/devise/
 gem 'devise'
+# HTML Abstraction Markup Language - A Markup Haiku http://haml.info
 gem 'haml'
 gem "haml-rails", "~> 1.0"
 # Use Redis adapter to run Action Cable in production
@@ -45,6 +47,8 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+  # A library for generating fake data such as names, addresses, and phone numbers.
+  gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 end
 
 group :development do

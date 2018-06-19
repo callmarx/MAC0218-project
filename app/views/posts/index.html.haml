@@ -3,6 +3,7 @@
 %table
   %thead
     %tr
+      %th Title
       %th Body
       %th Post type
       %th User
@@ -13,6 +14,7 @@
   %tbody
     - @posts.each do |post|
       %tr
+        %td= post.title
         %td= post.body
         %td= post.post_type
         %td= post.user

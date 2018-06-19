@@ -1,0 +1,24 @@
+namespace :faker do
+  desc "Populando o banco com dados falsos para testes"
+  task seed: :environment do
+    puts "Gerando alguns Usuários com senha 12345..."
+    3.times do
+      User.create!(
+        email: Faker::Internet.email,
+        password: "12345",
+      )
+    end
+    puts "Gerando alguns Usuários com senha 12345... Feito!"
+    puts "Gerando alguns Posts com lorem ipsum..."
+    10.times do
+      Post.create!(
+        title: Faker::Coffee.blend_name,
+        body: Faker::Lorem.paragraph([2,3,4,5].sample),
+        post_type: ["offer", "looking"].sample,
+        user: User.all.sample,
+      )
+    end
+    puts "Gerando alguns Posts com lorem ipsum... Feito!"
+  end
+
+end
