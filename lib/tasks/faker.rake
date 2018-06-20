@@ -4,7 +4,9 @@ namespace :faker do
     puts "Gerando alguns Usuários com senha 12345..."
     3.times do
       User.create!(
+        name: Faker::Name.name,
         email: Faker::Internet.email,
+        about_me: Faker::Simpsons.quote,
         password: "12345",
       )
     end
