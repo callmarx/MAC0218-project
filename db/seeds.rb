@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+puts "criando materias basicas no banco..."
+Subject.create(title: "Cálculo", specification: "Limites e derivadas. Cálculo diferencial e Integral.")
+Subject.create(title: "Estatística", specification: "Probabilidade e estatística.")
+Subject.create(title: "Álgebra", specification: "Álgebra abstrata, álgebra linear, álgebra computacional.")
+Subject.create(title: "Algoritmos", specification: "Introdução a computação, Lógica de programação, analise de algoritmos.")
+puts "criando materias basicas no banco... Feito"

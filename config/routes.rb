@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :posts
+  resources :subjects do
+    resources :posts
+  end
   devise_for :users
   ###!
   # pagina inicial do site esta definida no metodo 'index' do controller 'home'

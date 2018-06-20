@@ -18,6 +18,7 @@ namespace :faker do
         body: Faker::Lorem.paragraph([2,3,4,5].sample),
         post_type: ["offer", "looking"].sample,
         user: User.all.sample,
+        subject: Subject.all.sample
       )
     end
     puts "Gerando alguns Posts com lorem ipsum... Feito!"

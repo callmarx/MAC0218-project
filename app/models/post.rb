@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
   belongs_to :user
+  belongs_to :subject
   has_many :comments, as: :commentable
   ###!
   # O atributo :post_type é apenas para definir se o post trata-se de uma oferta de aula
