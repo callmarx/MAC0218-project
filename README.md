@@ -55,5 +55,19 @@ $ uname -a
 Linux ******* 4.16.8-1-ARCH #1 SMP PREEMPT x86_64 GNU/Linux
 ```
 
+## Testando a aplicação localmente
+
+Para testar o projeto localmente em sua máquina, basta ter o Ruby e o Rails instalados com as versões mencionadas acima. Dê um git clone no projeto e dentro da pasta execute:
+
+```
+$ bundle install
+$ rails db:create db:migrate db:seed faker:seed
+```
+O último comando irá criar o banco localmente em sqlite com alguns dados falsos, utilize o usuário **teste@teste.com** com senha **12345**. Agora basta rodar o puma localmente:
+
+```
+$ rails s
+```
+
 ## Licença
 Esse projeto esta sobre a licença __GNU General Public License v3.0__ - veja o arquivo [LICENSE.md](LICENSE.md) para mais detalhes.
