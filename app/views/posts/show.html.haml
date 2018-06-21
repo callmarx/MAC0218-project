@@ -13,6 +13,6 @@
   %b User:
   = @post.user.email
 
-= link_to 'Edit', edit_subject_post_path(@post)
+= link_to 'Edit', edit_subject_post_path(@subject, @post)
 \|
-= link_to 'Back', subject_post_path
+= link_to 'Back', subject_posts_path(@subject)
