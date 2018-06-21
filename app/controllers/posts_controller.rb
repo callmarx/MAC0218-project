@@ -51,6 +51,7 @@ class PostsController < ApplicationController
     def set_post
       @post = Post.find(params[:id])
       @subject = @post.subject
+      @comments = @post.comments
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

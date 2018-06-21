@@ -17,7 +17,7 @@
         %td= post.title
         %td= post.body
         %td= post.post_type
-        %td= post.user
+        %td= post.user.email
         %td= link_to 'Show', [@subject, post]
         %td= link_to 'Edit', edit_subject_post_path(@subject, post)
         %td= link_to 'Destroy', subject_post_path(@subject, post), method: :delete, data: { confirm: 'Are you sure?' }

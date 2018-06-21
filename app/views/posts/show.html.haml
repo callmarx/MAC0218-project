@@ -12,6 +12,12 @@
 %p
   %b User:
   = @post.user.email
+- @comments.each do | comment |
+  %p
+    %b Commens:
+    = comment.body
+    %b Commented on by:
+    = comment.user.email
 
 = link_to 'Edit', edit_subject_post_path(@subject, @post)
 \|

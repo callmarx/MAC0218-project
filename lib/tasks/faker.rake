@@ -28,6 +28,16 @@ namespace :faker do
       )
     end
     puts "Gerando alguns Posts com lorem ipsum... Feito!"
+    puts "Gerando alguns comentarios de Posts..."
+    Post.all.each do | post |
+      Random.new.rand(1..6).times do
+        post.comments.create!(
+          body: Faker::Simpsons.quote,
+          user: User.all.sample
+        )
+      end
+    end
+    puts "Gerando alguns comentarios de Posts... Feito!"
   end
 
 end
