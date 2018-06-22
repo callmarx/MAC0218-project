@@ -35,6 +35,11 @@
         = f.input_field :subject_id, collection: @subjects.map { |c| [c.title, c.id] }, prompt: "Select subject"
       %span.icon.is-small.is-left
         %i.fa.fa-tag
+    .control.has-icons-left
+      %span.select
+        = f.input_field :post_type, collection: [["Leciono", "offer"], ["Procuro Professor", "looking"]] , prompt: "Select type"
+      %span.icon.is-small.is-left
+        %i.fa.fa-tag
   .field
     .control
       = f.button :submit, class:"button is-info"
