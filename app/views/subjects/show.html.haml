@@ -10,21 +10,33 @@
 -# = link_to 'Edit', edit_subject_path(@subject)
 -# \|
 -# = link_to 'Back', subjects_path
-- content_for :page_title, @subject.title
-%p#notice= notice
-%section.section
-  .container
-    %nav.level
-      / Left side
-      .level-left
-        %p.level-item
-          %strong Actions
-      / Right side
-      .level-right
-        %p.level-item
-          = link_to "Edit", edit_subject_path(@subject), class:"button"
-        %p.level-item
-          = link_to 'Delete', @subject, method: :delete, data: { confirm: 'Are you sure?' }, class:"button is-danger"
-    %hr/
-    .content
-      = @subject.specification
+
+-# - content_for :page_title, @subject.title
+-# %p#notice= notice
+-# %section.section
+-#   .container
+-#     %nav.level
+-#       / Left side
+-#       .level-left
+-#         %p.level-item
+-#           %strong Actions
+-#       / Right side
+-#       .level-right
+-#         %p.level-item
+-#           = link_to "Edit", edit_subject_path(@subject), class:"button"
+-#         %p.level-item
+-#           = link_to 'Delete', @subject, method: :delete, data: { confirm: 'Are you sure?' }, class:"button is-danger"
+-#     %hr/
+-#     .content
+-#       = @subject.specification
+
+.level
+  .level-left
+    %h1.title.is-2= @subject.title
+  .level-right
+    - if has_role?(:admin)
+      = link_to 'Edit Subject', edit_subject_path(@subject), class:"button"
+%hr/
+.columns
+  = render 'shared/posts'
+  = render 'shared/sidebar'

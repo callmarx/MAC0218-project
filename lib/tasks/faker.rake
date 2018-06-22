@@ -3,14 +3,14 @@ namespace :faker do
   task seed: :environment do
     puts "Gerando alguns Usuários com senha 12345..."
     User.create!(
-      name: "Usuário Teste",
+      username: "Usuário Teste",
       email: "teste@teste.com",
       about_me: "Testaaandoooooo",
       password: "12345",
     )
     3.times do
       User.create!(
-        name: Faker::Name.name,
+        username: Faker::Name.name,
         email: Faker::Internet.email,
         about_me: Faker::Simpsons.quote,
         password: "12345",

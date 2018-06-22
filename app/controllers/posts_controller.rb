@@ -1,11 +1,13 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :find_subject, only: [:index, :show, :new, :edit]
 
   # GET /posts
   def index
-    @subject = Subject.find(params[:subject_id])
-    @posts = @subject.posts
+    ###!
+    # Faz sentido termos os posts em ordem de postagem
+    @posts = @subject.posts.order('created_at desc')
   end
 
   # GET /posts/1
@@ -25,7 +27,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      redirect_to [@subject, @post], notice: 'Post was successfully created.'
+      redirect_to @post, notice: 'Post was successfully created.'
     else
       render :new
     end
@@ -34,7 +36,7 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   def update
     if @post.update(post_params)
-      redirect_to [@subject, @post], notice: 'Post was successfully updated.'
+      redirect_to @post, notice: 'Post was successfully updated.'
     else
       render :edit
     end
@@ -43,21 +45,22 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   def destroy
     @post.destroy
-    redirect_to subject_posts_url, notice: 'Post was successfully destroyed.'
+    redirect_to posts_url, notice: 'Post was successfully destroyed.'
   end
 
   private
+    def find_subject
+      @subject = Subject.find(params[:subject_id])
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])
-      @subject = @post.subject
-      @comments = @post.comments
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
       ###!
-      # Para incluir o :user_id nos paramentros de entrada na criação/edição do post
+      # Para incluir o :user_id nos paramentros de entrada na criação do post
       # utilizamos a função merge como segue:
       params.require(:post).permit(:title, :body, :post_type).merge(user_id: current_user.id, subject_id: params[:subject_id])
     end

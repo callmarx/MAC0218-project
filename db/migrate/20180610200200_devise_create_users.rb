@@ -4,7 +4,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
   def change
     create_table :users do |t|
       ## Profile attributes
-      t.string :name,              null:false, default: ""
+      # alem do padro do device tambem termos o atributo username
+      t.string :username,              null: false, default: ""
       t.text :about_me,            default: ""
       ## Database authenticatable
       t.string :email,             null: false, default: ""

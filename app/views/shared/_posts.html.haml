@@ -1,0 +1,24 @@
+.column.is-8
+  %h3.title.is-5.has-text-grey-light Latest Posts
+  .discussions
+    - @posts.each do |post|
+      .columns.bb-not-last.pv10
+        .column.is-1
+          /= gravatar_image_tag(post.user.email, class:'border-radius-50', size: 48, alt: post.user.username)
+        .column.is-8
+          = link_to post do
+            %h3.title.is-5= post.title
+          .content
+            /= truncate(strip_markdown(post.body), length: 140)
+            = post.body
+            %p
+              %em
+                %small
+                  Posted #{time_ago_in_words(post.created_at)} ago in
+                  - if post.subject
+                    = link_to post.subject.title, post.subject
+                  by #{post.user.username}
+        - if post_author(post) || has_role?(:admin)
+          .column.has-text-right
+            = link_to 'Edit', edit_post_path(post), class:'button'
+            = link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "button"

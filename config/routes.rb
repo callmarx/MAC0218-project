@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  resources :subjects do
-    resources :posts
+  resources :subjects
+  resources :posts do
+    resources :comments
   end
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'registrations' }
   ###!
   # pagina inicial do site esta definida no metodo 'index' do controller 'home'
   root 'home#index'
