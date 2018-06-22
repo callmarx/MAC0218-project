@@ -28,8 +28,23 @@ gem 'haml'
 gem "haml-rails", "~> 1.0"
 # Integrates Bulma with the rails asset pipeline. A modern CSS framework based on Flexbox.
 gem "bulma-rails", "~> 0.7.1"
+# A gem to automate using jQuery with Rails
+gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 # Forms made easy for Rails! It's tied to a simple DSL, with no opinion on markup.
 gem 'simple_form'
+# FriendlyId is the "Swiss Army bulldozer" of slugging and permalink plugins for ActiveRecord. It allows you to create pretty URL’s and work with human-friendly strings as if they were numeric ids for ActiveRecord models. http://norman.github.io/friendly_id/
+gem 'friendly_id', '~> 5.2', '>= 5.2.4'
+# The safe Markdown parser, reloaded.
+gem 'redcarpet', '~> 3.4'
+# Fast and easy syntax highlighting for selected languages, written in Ruby. http://coderay.rubychan.de/
+gem 'coderay', '~> 1.1', '>= 1.1.2'
+
+## Gems utilizadas com o seguinte tutorial https://github.com/RolifyCommunity/rolify/wiki/Devise---CanCanCan---rolify-Tutorial
+# The authorization Gem for Ruby on Rails.
+gem 'cancancan', '~> 2.2'
+# Role management library with resource scoping http://rolifycommunity.github.com/rol…
+gem 'rolify', '~> 5.2'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password

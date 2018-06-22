@@ -25,7 +25,7 @@
 
 .columns
   .column.is-8
-    %h1.title.is-2.has-text-grey.discussion-title= @post.title
+    %h1.title.is-2.has-text-grey.post-title= @post.title
     %h3.subtitle.is-5.has-text-grey-lighter
       by #{@post.user.username} in #{link_to @post.subject.title, @post.subject}
     .level
@@ -35,12 +35,11 @@
           .buttons
             = link_to 'Edit Post', edit_post_path(@post), class:'button'
             = link_to 'Delete', post_path(@post), method: :delete, data: { confirm: "Delete post?" }, class:'button'
-    /.content= markdown(@post.body)
-    .content= @post.body
+    .content= markdown(@post.body)
     %h2.subtitle.is-5.has-text-grey
       = @post.comments.count
       Comments
-    #discussion-replies
+    #post-replies
       = render @post.comments
     %hr/
     %h3.subtitle.is-3.has-text-grey Leave a comment

@@ -8,4 +8,6 @@ class Post < ApplicationRecord
   validates :post_type, inclusion: { in: %w(offer looking),
     message: "%{value} is not a valid post_type. Only \"offer\" and \"looking\" are allowed" }
   validates :title, :body, presence: true
+
+  resourcify
 end

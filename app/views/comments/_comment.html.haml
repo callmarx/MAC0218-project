@@ -8,8 +8,7 @@
           %strong= comment.user.username
           %small= time_ago_in_words(comment.created_at)
           %br/
-          /= markdown(comment.body)
-          = comment.body
+          = markdown(comment.body)
       - if comment_author(comment) || has_role?(:admin)
         %nav.level.is-mobile
           .level-left

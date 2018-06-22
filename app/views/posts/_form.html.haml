@@ -32,7 +32,7 @@
     %label.label Post
     .control.has-icons-left
       %span.select
-        = f.input_field :subject_id, collection: @subjects.map { |c| [c.subject, c.id] }, prompt: "Select subject"
+        = f.input_field :subject_id, collection: @subjects.map { |c| [c.title, c.id] }, prompt: "Select subject"
       %span.icon.is-small.is-left
         %i.fa.fa-tag
   .field
