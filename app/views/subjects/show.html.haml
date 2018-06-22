@@ -1,12 +1,30 @@
+-# %p#notice= notice
+-#
+-# %p
+-#   %b Title:
+-#   = @subject.title
+-# %p
+-#   %b Specification:
+-#   = @subject.specification
+-#
+-# = link_to 'Edit', edit_subject_path(@subject)
+-# \|
+-# = link_to 'Back', subjects_path
+- content_for :page_title, @subject.title
 %p#notice= notice
-
-%p
-  %b Title:
-  = @subject.title
-%p
-  %b Specification:
-  = @subject.specification
-
-= link_to 'Edit', edit_subject_path(@subject)
-\|
-= link_to 'Back', subjects_path
+%section.section
+  .container
+    %nav.level
+      / Left side
+      .level-left
+        %p.level-item
+          %strong Actions
+      / Right side
+      .level-right
+        %p.level-item
+          = link_to "Edit", edit_subject_path(@subject), class:"button"
+        %p.level-item
+          = link_to 'Delete', @subject, method: :delete, data: { confirm: 'Are you sure?' }, class:"button is-danger"
+    %hr/
+    .content
+      = @subject.specification

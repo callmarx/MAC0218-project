@@ -1,23 +1,34 @@
-%h1 Listing subjects
-
-%table
-  %thead
-    %tr
-      %th Title
-      %th Specification
-      %th
-      %th
-      %th
-
-  %tbody
+-# %h1.class.title Listing subjects
+-#
+-# %table
+-#   %thead
+-#     %tr
+-#       %th Title
+-#       %th Specification
+-#       %th
+-#       %th
+-#       %th
+-#
+-#   %tbody
+-#     - @subjects.each do |subject|
+-#       %tr
+-#         %td= subject.title
+-#         %td= subject.specification
+-#         %td= link_to 'Show', subject
+-#         %td= link_to 'Edit', edit_subject_path(subject)
+-#         %td= link_to 'Destroy', subject, method: :delete, data: { confirm: 'Are you sure?' }
+-#
+-# %br
+-#
+-# = link_to 'New Subject', new_subject_path
+- content_for :page_title, "Subjects"
+.section
+  .container
     - @subjects.each do |subject|
-      %tr
-        %td= subject.title
-        %td= subject.specification
-        %td= link_to 'Show', subject
-        %td= link_to 'Edit', edit_subject_path(subject)
-        %td= link_to 'Destroy', subject, method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
-
-= link_to 'New Subject', new_subject_path
+      .card
+        .card-content
+          .media
+            .media-content
+              %p.title.is-4= link_to subject.title, subject
+          .content= subject.specification
+  .button.is-primary= link_to 'New Subject', new_subject_path

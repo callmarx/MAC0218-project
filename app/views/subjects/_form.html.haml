@@ -1,16 +1,32 @@
-= form_for @subject do |f|
+-# = form_for @subject do |f|
+-#   - if @subject.errors.any?
+-#     #error_explanation
+-#       %h2= "#{pluralize(@subject.errors.count, "error")} prohibited this subject from being saved:"
+-#       %ul
+-#         - @subject.errors.full_messages.each do |message|
+-#           %li= message
+-#
+-#   .field
+-#     = f.label :title
+-#     = f.text_field :title
+-#   .field
+-#     = f.label :specification
+-#     = f.text_area :specification
+-#   .actions
+-#     = f.submit 'Save'
+
+= simple_form_for @subject do |f|
   - if @subject.errors.any?
     #error_explanation
       %h2= "#{pluralize(@subject.errors.count, "error")} prohibited this subject from being saved:"
       %ul
         - @subject.errors.full_messages.each do |message|
           %li= message
-
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :specification
-    = f.text_area :specification
-  .actions
-    = f.submit 'Save'
+  .section
+    .field
+      .control
+        = f.input :title, input_html: {class: 'input'}, wrapper: false, label_html: {class: 'label'}
+    .field
+      .control
+        = f.input :specification, input_html: {class: 'textarea'}, wrapper: false, label_html: {class: 'label'}
+    = f.button :submit, class: 'button is-primary'

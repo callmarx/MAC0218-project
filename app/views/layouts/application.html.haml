@@ -8,4 +8,23 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
+    %section.hero.is-primary.is-medium
+      / Hero head: will stick at the top
+      .hero-head
+        %nav.navbar
+          .container
+            .navbar-brand
+              = link_to 'Demo Blog', root_path, class: "navbar-item"
+              %span.navbar-burger.burger{"data-target" => "navbarMenuHeroA"}
+                %span
+                %span
+                %span
+            #navbarMenuHeroA.navbar-menu
+              .navbar-end
+                = link_to "Create New Post", '', class:"navbar-item"
+      / Hero content: will be in the middle
+      .hero-body
+        .container.has-text-centered
+          %h1.title
+            = yield :page_title
     = yield

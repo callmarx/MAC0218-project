@@ -28,6 +28,8 @@ gem 'haml'
 gem "haml-rails", "~> 1.0"
 # Integrates Bulma with the rails asset pipeline. A modern CSS framework based on Flexbox.
 gem "bulma-rails", "~> 0.7.1"
+# Forms made easy for Rails! It's tied to a simple DSL, with no opinion on markup.
+gem 'simple_form'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
@@ -54,13 +56,10 @@ group :development, :test do
   # Better error page for Rack apps
   gem "better_errors"
   gem "binding_of_caller"
-
-  # Forms made easy for Rails! It's tied to a simple DSL, with no opinion on markup.
-  gem 'simple_form'
   # Guard is a command line tool to easily handle events on file system modifications
   gem 'guard'
   # Guard::LiveReload automatically reload your browser when 'view' files are modified.
-  gem 'guard-livereload', '~> 2.5', require: false
+  gem 'guard-livereload', '~> 2.5', , require: false
 end
 
 group :development do

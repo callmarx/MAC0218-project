@@ -1,5 +1,8 @@
-%h1 New subject
-
+-# %h1 New subject
+-#
+-# = render 'form'
+-#
+-# = link_to 'Back', subjects_path
+- content_for :page_title, "New Subjects"
 = render 'form'
-
-= link_to 'Back', subjects_path
+.button.is-primary= link_to 'Back', subjects_path

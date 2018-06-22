@@ -1,7 +1,10 @@
-%h1 Editing subject
-
+-# %h1 Editing subject
+-#
+-# = render 'form'
+-#
+-# = link_to 'Show', @subject
+-# \|
+-# = link_to 'Back', subjects_path
+- content_for :page_title, "Editing Subjects"
 = render 'form'
-
-= link_to 'Show', @subject
-\|
-= link_to 'Back', subjects_path
+.button.is-primary= link_to 'Back', subjects_path
