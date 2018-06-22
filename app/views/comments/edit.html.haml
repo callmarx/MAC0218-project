@@ -1,5 +1,5 @@
 %h1.title.is-2.has-text-grey Editing Comment
-= simple_form_for([@subject, @comment]) do |f|
+= simple_form_for([@post, @comment]) do |f|
   .field
     .control
       = f.input :body, input_html: { class: 'textarea' }, wrapper: false, label_html: { class: 'label' }

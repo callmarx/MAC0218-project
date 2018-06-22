@@ -2,12 +2,14 @@ namespace :faker do
   desc "Populando o banco com dados falsos para testes"
   task seed: :environment do
     puts "Gerando alguns Usuários com senha 12345..."
-    User.create!(
+    u = User.create!(
       username: "Usuário Teste",
       email: "teste@teste.com",
       about_me: "Testaaandoooooo",
       password: "12345",
     )
+    u.add_role "admin"
+    u.save
     3.times do
       User.create!(
         username: Faker::Name.name,
