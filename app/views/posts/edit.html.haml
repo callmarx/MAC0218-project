@@ -1,7 +1,10 @@
-%h1 Editing post
+-# %h1 Editing post
+-#
+-# = render 'form'
+-#
+-# = link_to 'Show', @post
+-# \|
+-# = link_to 'Back', posts_path(@subject)
 
-= render 'form'
-
-= link_to 'Show', [@subject, @post]
-\|
-= link_to 'Back', subject_posts_path(@subject)
+%h1.title.is-3 Editing Post
+= render 'form', post: @post

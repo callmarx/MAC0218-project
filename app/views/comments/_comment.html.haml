@@ -1,0 +1,22 @@
+.box
+  %article.media
+    .media-left
+      /%figure.image.is-48x48= gravatar_image_tag(comment.user.email, class: 'border-radius-50', size: 48, alt: comment.user.username)
+    .media-content
+      .content
+        %p
+          %strong= comment.user.username
+          %small= time_ago_in_words(comment.created_at)
+          %br/
+          = markdown(comment.body)
+      - if comment_author(comment) || has_role?(:admin)
+        %nav.level.is-mobile
+          .level-left
+            %a.level-item
+              = link_to edit_post_comment_path(comment.post, comment) do
+                %span.icon.is-small
+                  %i.fa.fa-pencil
+            %a.level-item
+              = link_to [comment.post, comment], method: :delete, data: {confirm: "Are you sure ?" } do
+                %span.icon.is-small
+                  %i.fa.fa-trash-o

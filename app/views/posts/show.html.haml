@@ -1,24 +1,53 @@
-%p#notice= notice
+-# %p#notice= notice
+-#
+-# %p
+-#   %b Title:
+-#   = @post.title
+-# %p
+-#   %b Body:
+-#   = @post.body
+-# %p
+-#   %b Post type:
+-#   = @post.post_type
+-# %p
+-#   %b User:
+-#   = @post.user.email
+-# - @comments.each do | comment |
+-#   %p
+-#     %b Commens:
+-#     = comment.body
+-#     %b Commented on by:
+-#     = comment.user.email
+-#
+-# = link_to 'Edit', edit_post_path(@post)
+-# \|
+-# = link_to 'Back', posts_path
 
-%p
-  %b Title:
-  = @post.title
-%p
-  %b Body:
-  = @post.body
-%p
-  %b Post type:
-  = @post.post_type
-%p
-  %b User:
-  = @post.user.email
-- @comments.each do | comment |
-  %p
-    %b Commens:
-    = comment.body
-    %b Commented on by:
-    = comment.user.email
-
-= link_to 'Edit', edit_subject_post_path(@subject, @post)
-\|
-= link_to 'Back', subject_posts_path(@subject)
+.columns
+  .column.is-8
+    %h1.title.is-2.has-text-grey.discussion-title= @post.title
+    %h3.subtitle.is-5.has-text-grey-lighter
+      by #{@post.user.username} in #{link_to @post.subject.title, @post.subject}
+    .level
+      .level-left
+      .level-right
+        - if post_author(@post)
+          .buttons
+            = link_to 'Edit Post', edit_post_path(@post), class:'button'
+            = link_to 'Delete', post_path(@post), method: :delete, data: { confirm: "Delete post?" }, class:'button'
+    /.content= markdown(@post.body)
+    .content= @post.body
+    %h2.subtitle.is-5.has-text-grey
+      = @post.comments.count
+      Comments
+    #discussion-replies
+      = render @post.comments
+    %hr/
+    %h3.subtitle.is-3.has-text-grey Leave a comment
+    - if user_signed_in?
+      = render 'comments/form'
+    - else
+      %p
+        To reply you need to #{link_to 'login', new_user_session_path}. Don't have an account?
+        \#{link_to 'Sign up', new_user_registration_path} for one.
+  = render 'shared/sidebar'

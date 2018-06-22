@@ -4,10 +4,12 @@ class SubjectsController < ApplicationController
   # GET /subjects
   def index
     @subjects = Subject.all
+    @posts = Post.all.order('created_at desc')
   end
 
   # GET /subjects/1
   def show
+    @subjects = Subject.all
     @posts = @subject.posts
   end
 

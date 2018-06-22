@@ -1,27 +1,31 @@
-%h1 Listing posts
+-# %h1 Listing posts
+-#
+-# %table
+-#   %thead
+-#     %tr
+-#       %th Title
+-#       %th Body
+-#       %th Post type
+-#       %th User
+-#       %th
+-#       %th
+-#       %th
+-#
+-#   %tbody
+-#     - @posts.each do |post|
+-#       %tr
+-#         %td= post.title
+-#         %td= post.body
+-#         %td= post.post_type
+-#         %td= post.user.email
+-#         %td= link_to 'Show', post
+-#         %td= link_to 'Edit', edit_post_path(post)
+-#         %td= link_to 'Destroy', post_path(post), method: :delete, data: { confirm: 'Are you sure?' }
+-#
+-# %br
+-#
+-# = link_to 'New Post', new_post_path
 
-%table
-  %thead
-    %tr
-      %th Title
-      %th Body
-      %th Post type
-      %th User
-      %th
-      %th
-      %th
-
-  %tbody
-    - @posts.each do |post|
-      %tr
-        %td= post.title
-        %td= post.body
-        %td= post.post_type
-        %td= post.user.email
-        %td= link_to 'Show', [@subject, post]
-        %td= link_to 'Edit', edit_subject_post_path(@subject, post)
-        %td= link_to 'Destroy', subject_post_path(@subject, post), method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
-
-= link_to 'New Post', new_subject_post_path(@subject)
+.columns
+  = render 'shared/posts'
+  = render 'shared/sidebar'

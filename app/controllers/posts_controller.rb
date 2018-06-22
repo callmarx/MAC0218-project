@@ -1,22 +1,23 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :find_subject, only: [:index, :show, :new, :edit]
+  before_action :get_subject, only: [:index, :show, :new, :edit]
 
   # GET /posts
   def index
     ###!
     # Faz sentido termos os posts em ordem de postagem
-    @posts = @subject.posts.order('created_at desc')
+    @posts = Post.all.order('created_at desc')
   end
 
   # GET /posts/1
   def show
+    @posts = Post.all.order('created_at desc')
   end
 
   # GET /posts/new
   def new
-    @post = Post.new
+    @post = current_user.posts.build
   end
 
   # GET /posts/1/edit
@@ -25,7 +26,7 @@ class PostsController < ApplicationController
 
   # POST /posts
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.build(post_params)
     if @post.save
       redirect_to @post, notice: 'Post was successfully created.'
     else
@@ -49,8 +50,8 @@ class PostsController < ApplicationController
   end
 
   private
-    def find_subject
-      @subject = Subject.find(params[:subject_id])
+    def get_subjects
+      @subjects = Subject.all
     end
     # Use callbacks to share common setup or constraints between actions.
     def set_post
@@ -59,9 +60,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      ###!
-      # Para incluir o :user_id nos paramentros de entrada na criação do post
-      # utilizamos a função merge como segue:
-      params.require(:post).permit(:title, :body, :post_type).merge(user_id: current_user.id, subject_id: params[:subject_id])
+      params.require(:post).permit(:title, :body, :post_type, :subject_id)
     end
 end
