@@ -1,45 +1,23 @@
--# = form_for [@subject, @post] do |f|
--#   - if @post.errors.any?
--#     #error_explanation
--#       %h2= "#{pluralize(@post.errors.count, "error")} prohibited this post from being saved:"
--#       %ul
--#         - @post.errors.full_messages.each do |message|
--#           %li= message
--#
--#   .field
--#     = f.label :title
--#     = f.text_area :title
--#   .field
--#     = f.label :body
--#     = f.text_area :body
--#   .field
--#     = f.label :post_type
--#     -# ###!
--#       Como :post_type é delimitado em 2 valores, utlizaremos o seguinte combobox:
--#     = f.select :post_type, [["offer", "offer"],["looking", "looking"]]
--#   .actions
--#     = f.submit 'Save'
-
 = simple_form_for(@post) do |f|
   = f.error_notification
   .field
     .control
-      = f.input :title, required: true, input_html: { class: 'input' }, wrapper: false, label_html: { class: "label" }
+      = f.input :title, required: true, input_html: { class: 'input' }, wrapper: false, label_html: { class: "label" }, label: "Título"
   .field
     .control
-      = f.input :body, required: true, input_html: { class: 'textarea' }, wrapper: false, label_html: { class: "label" }
+      = f.input :body, required: true, input_html: { class: 'textarea' }, wrapper: false, label_html: { class: "label" }, label: "Post"
   .field
-    %label.label Post
+    %label.label Tópico e Ação
     .control.has-icons-left
       %span.select
-        = f.input_field :subject_id, collection: @subjects.map { |c| [c.title, c.id] }, prompt: "Select subject"
+        = f.input_field :subject_id, collection: @subjects.map { |c| [c.title, c.id] }, prompt: "Selecione o Tópico"
       %span.icon.is-small.is-left
         %i.fa.fa-tag
     .control.has-icons-left
       %span.select
-        = f.input_field :post_type, collection: [["Leciono", "offer"], ["Procuro Professor", "looking"]] , prompt: "Select type"
+        = f.input_field :post_type, collection: [["Leciono", "offer"], ["Procuro Professor", "looking"]], prompt: "Selecione a Ação"
       %span.icon.is-small.is-left
         %i.fa.fa-tag
   .field
     .control
-      = f.button :submit, class:"button is-info"
+      = f.button :submit, "Postar", class:"button is-info"

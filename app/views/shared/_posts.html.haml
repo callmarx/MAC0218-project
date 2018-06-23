@@ -1,5 +1,5 @@
 .column.is-8
-  %h3.title.is-5.has-text-grey-light Latest Posts
+  %h3.title.is-5.has-text-grey-light Últimas Postagens
   .posts
     - @posts.each do |post|
       .columns.bb-not-last.pv10
@@ -13,11 +13,11 @@
             %p
               %em
                 %small
-                  Posted #{time_ago_in_words(post.created_at)} ago in
+                  Postado #{time_ago_in_words(post.created_at)} atrás em
                   - if post.subject
                     = link_to post.subject.title, post.subject
-                  by #{post.user.username}
+                  por #{post.user.username}
         - if post_author(post) || has_role?(:admin)
           .column.has-text-right
-            = link_to 'Edit', edit_post_path(post), class:'button'
-            = link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "button"
+            = link_to 'Editar', edit_post_path(post), class:'button'
+            = link_to 'Excluir', post, method: :delete, data: { confirm: 'Tem certeza disso?' }, class: "button"

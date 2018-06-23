@@ -1,14 +1,4 @@
--# %h1 New subject
--#
--# = render 'form'
--#
--# = link_to 'Back', subjects_path
-
--# - content_for :page_title, "New Subjects"
--# = render 'form'
--# .button.is-primary= link_to 'Back', subjects_path
-
 .columns.is-centered
   .column.is-4
-    %h1.title.is-3 Create a new subject
+    %h1.title.is-3 Criar novo Tópico
     = render 'form', subject: @subject

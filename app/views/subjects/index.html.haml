@@ -1,50 +1,13 @@
--# %h1.class.title Listing subjects
--#
--# %table
--#   %thead
--#     %tr
--#       %th Title
--#       %th Specification
--#       %th
--#       %th
--#       %th
--#
--#   %tbody
--#     - @subjects.each do |subject|
--#       %tr
--#         %td= subject.title
--#         %td= subject.specification
--#         %td= link_to 'Show', subject
--#         %td= link_to 'Edit', edit_subject_path(subject)
--#         %td= link_to 'Destroy', subject, method: :delete, data: { confirm: 'Are you sure?' }
--#
--# %br
--#
--# = link_to 'New Subject', new_subject_path
-
-
--# - content_for :page_title, "Subjects"
--# .section
--#   .container
--#     - @subjects.each do |subject|
--#       .card
--#         .card-content
--#           .media
--#             .media-content
--#               %p.title.is-4= link_to subject.title, subject
--#           .content= subject.specification
--#   .button.is-primary= link_to 'New Subject', new_subject_path
-
-%h1.title.is-2 Subject
+%h1.title.is-2 Tópicos buscado por professores e alunos
 - if has_role?(:admin)
   .level
     .level-left
     .level-right
-      = link_to 'New Subject', new_subject_path, class:'button is-dark'
+      = link_to 'Novo Tópico', new_subject_path, class:'button is-dark'
   %table.table.is-fullwidth
     %thead
       %tr
-        %th Subject
+        %th Tópico
         %th{:colspan => "3"}
     %tbody
       - @subjects.each do |subject|
@@ -52,8 +15,8 @@
           %td= link_to subject.title, subject
           %td
             .buttons.is-right
-              = link_to 'View Subject', subject, class:'button'
-              = link_to 'Edit Subject', edit_subject_path(subject), class:'button'
-              = link_to 'Delete', subject, class:'button is-danger', method: :delete, data: { confirm: "Are you sure you want to delete this subject? " }
+              = link_to 'Visualizar', subject, class:'button'
+              = link_to 'Editar', edit_subject_path(subject), class:'button'
+              = link_to 'Excluir', subject, class:'button is-danger', method: :delete, data: { confirm: "Tem certeza disso you want to delete this subject? " }
 - else
-  %p.has-text-center Sorry! You don't have access this page.
+  %p.has-text-center Desculpe! Você não tem acesso à essa página.
