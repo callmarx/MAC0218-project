@@ -12,19 +12,28 @@ Integrantes:
 
 ## Objetivo do projeto
 
-Desenvolvimento de uma mini rede social para busca e oferecimento de aulas particulares. Haverá sistema de login com senha e opção de login por redes social (Facebook e Gmail). Inicialmente esta previsto a seguinte estrutura de páginas:
+Aplicar os conhecimentos e técnicas aprendidos na disciplina com  o desenvolvimento de uma mini rede social para busca e oferecimento de aulas particulares. Estrutura de páginas:
 
-* __Home__: Descrição de projeto com campos para login e cadastro
-* __Login e cadastro__: Página para entrar ou se cadastrar no sistema e termos de uso da plataforma
+* __Home__: Descrição de projeto com campos para login ou cadastro
+* __Login e cadastro__: Página para entrar ou se cadastrar no sistema
 * __Perfil do usuário__: Página para visualizar e editar informações pessoais
-* __Disciplina/Área académica__: Página para que interessados em ministrar ou obter aulas da área acadêmica possam postar suas propostas. Uma página para cada área (Exemplo: Cálculo, Física, Estatística, Estrutura de Dados, etc), talvez um sistema hierárquico de páginas para as especializações da área.
+* __Tópico/Área académica__: Página para que interessados em ministrar ou obter aulas da área acadêmica possam postar suas propostas. Uma página para cada área (Exemplo: Cálculo, Física, Estatística, Estrutura de Dados, etc)
+* __Postagem__: Pstagem de cada usuário oferecendo ou buscando por aulas.
 
-Além disso haverá um sistema de postagem e comentários de post. Em todas as páginas, no ambiente logado, haverá um campo de busca que devolve às palavras chaves buscas uma lista das páginas de disciplina com o termo (seja pelo nome da página ou em posts internos).
+### Sites que serviram como referência e inspiração para esse projeto:
+- https://www.99freelas.com.br/
+- https://www.getninjas.com.br/
+- https://profes.com.br/
 
-Sites que serviram como referência e inspiração para esse projeto:
- - https://www.99freelas.com.br/
- - https://www.getninjas.com.br/
- - https://profes.com.br/
+### Principais tutorias e ferremantas utilizadas
+- http://guides.rubyonrails.org/
+- https://github.com/charliesome/better_errors
+- https://github.com/plataformatec/devise
+- https://github.com/norman/friendly_id
+- https://github.com/RolifyCommunity/rolify/wiki/Devise---CanCanCan---rolify-Tutorial
+- https://bulma.io/documentation/
+- https://www.codefellows.org/blog/how-to-create-a-markdown-friendly-blog-in-a-rails-app/
+- https://web-crunch.com/lets-build-with-ruby-on-rails-blog-with-comments/
 
 ## Ambiente, linguagem e arcabouço
 
