@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments
   end
-  root 'subjects#index'
+  root 'home#index'
+  get '/LICENSE.md', to: 'home#license'
   devise_for :users, controllers: { registrations: 'registrations' }
   ###!
   # pagina inicial do site esta definida no metodo 'index' do controller 'home'

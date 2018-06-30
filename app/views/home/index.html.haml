@@ -1,10 +1,6 @@
-%h1 MAC0218 Project
--###!
-  # Precisamos verificar se o usuário esta ou não logado para definir oq irá parecer na página
-- if user_signed_in?
-  %p Bem vindo #{current_user.username}!
--#   = link_to 'Edit my profile', edit_user_registration_path
--#   = link_to 'Logout', destroy_user_session_path, :method => :delete
--# - else
--#   = link_to 'Log in', new_user_session_path
--#   = link_to 'Sign up', new_user_registration_path
+-# - if user_signed_in?
+-#   %p Bem vindo #{current_user.username}!
+.columns
+  .column.is-8
+    .level
+    .content= markdown(@content)

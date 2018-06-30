@@ -8,7 +8,7 @@ module ApplicationHelper
   # Código inspirado em https://www.codefellows.org/blog/how-to-create-a-markdown-friendly-blog-in-a-rails-app/
   class CodeRayify < Redcarpet::Render::HTML
     def block_code(code, language)
-      CodeRay.scan(code,language).div
+      CodeRay.scan(code, language || :text).div
     end
   end
 
