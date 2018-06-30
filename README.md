@@ -19,7 +19,7 @@ Desenvolvimento de uma mini rede social para busca e oferecimento de aulas parti
 * __Perfil do usuário__: Página para visualizar e editar informações pessoais
 * __Disciplina/Área académica__: Página para que interessados em ministrar ou obter aulas da área acadêmica possam postar suas propostas. Uma página para cada área (Exemplo: Cálculo, Física, Estatística, Estrutura de Dados, etc), talvez um sistema hierárquico de páginas para as especializações da área.
 
-Além disso haverá um sistema de ranqueamento/voto de perfil sob perfil, post e comentários de post. Em todas as páginas, no ambiente logado, haverá um campo de busca que devolve às palavras chaves buscas uma lista das páginas de disciplina com o termo (seja pelo nome da página ou em posts internos).
+Além disso haverá um sistema de postagem e comentários de post. Em todas as páginas, no ambiente logado, haverá um campo de busca que devolve às palavras chaves buscas uma lista das páginas de disciplina com o termo (seja pelo nome da página ou em posts internos).
 
 Sites que serviram como referência e inspiração para esse projeto:
  - https://www.99freelas.com.br/
@@ -63,11 +63,13 @@ Para testar o projeto localmente em sua máquina, basta ter o Ruby e o Rails ins
 $ bundle install
 $ rails db:create db:migrate db:seed faker:seed
 ```
-O último comando irá criar o banco localmente em sqlite com alguns dados falsos, utilize o usuário **teste@teste.com** com senha **12345**. Agora basta rodar o puma localmente:
+O último comando irá criar o banco localmente em sqlite com alguns dados falsos. Agora basta rodar o puma localmente:
 
 ```
 $ rails s
 ```
+Utilize o usuário **teste@teste.com** com senha **12345** para navegar na aplicação localmente.
+
 
 ## Licença
 Esse projeto esta sobre a licença __GNU General Public License v3.0__ - veja o arquivo [LICENSE.md](LICENSE.md) para mais detalhes.

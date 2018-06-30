@@ -28,6 +28,10 @@
           %span
       #navbar.navbar-menu
         .navbar-end
+          .navbar-item
+            .field.is-grouped
+              = form_tag(search_path) do
+                = text_field_tag :keywords, params[:keywords], class: "input control", placeholder: "Pesquise nos posts..."
           - if user_signed_in?
             .navbar-item
               .field.is-grouped
