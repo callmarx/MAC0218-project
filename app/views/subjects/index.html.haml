@@ -1,22 +1,22 @@
 %h1.title.is-2 Tópicos buscado por professores e alunos
-- if has_role?(:admin)
+- @admin = has_role?(:admin)
+- if @admin
   .level
     .level-left
     .level-right
       = link_to 'Novo Tópico', new_subject_path, class:'button is-dark'
-  %table.table.is-fullwidth
-    %thead
+%table.table.is-fullwidth
+  %thead
+    %tr
+      %th Tópico
+      %th{:colspan => "3"}
+  %tbody
+    - @subjects.each do |subject|
       %tr
-        %th Tópico
-        %th{:colspan => "3"}
-    %tbody
-      - @subjects.each do |subject|
-        %tr
-          %td= link_to subject.title, subject
-          %td
-            .buttons.is-right
-              = link_to 'Visualizar', subject, class:'button'
+        %td= link_to subject.title, subject
+        %td
+          .buttons.is-right
+            = link_to 'Visualizar', subject, class:'button'
+            - if @admin
               = link_to 'Editar', edit_subject_path(subject), class:'button'
               = link_to 'Excluir', subject, class:'button is-danger', method: :delete, data: { confirm: "Tem certeza disso you want to delete this subject? " }
-- else
-  %p.has-text-center Desculpe! Você não tem acesso à essa página.
