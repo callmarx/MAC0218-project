@@ -1,11 +1,11 @@
+- @author = comment.user
 .box
   %article.media
     .media-left
-      /%figure.image.is-48x48= gravatar_image_tag(comment.user.email, class: 'border-radius-50', size: 48, alt: comment.user.username)
+      %figure.image.is-48x48= gravatar_image_tag(@author.email, class: 'border-radius-50', size: 48, alt: @author.username)
     .media-content
       .content
         %p
-          - @author = comment.user
           %strong= link_to @author.username, profile_path(@author.to_param), class: "has-text-black"
           %small= time_ago_in_words(comment.created_at)
           %br/

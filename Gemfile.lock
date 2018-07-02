@@ -118,6 +118,7 @@ GEM
       activerecord (>= 4.0.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    gravatar_image_tag (1.2.0)
     guard (2.14.2)
       formatador (>= 0.2.4)
       listen (>= 2.7, < 4.0)
@@ -320,6 +321,7 @@ DEPENDENCIES
   factory_bot_rails
   faker!
   friendly_id (~> 5.2, >= 5.2.4)
+  gravatar_image_tag (~> 1.2)
   guard
   guard-livereload (~> 2.5)
   haml

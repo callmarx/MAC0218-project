@@ -38,6 +38,8 @@ gem 'friendly_id', '~> 5.2', '>= 5.2.4'
 gem 'redcarpet', '~> 3.4'
 # Fast and easy syntax highlighting for selected languages, written in Ruby. http://coderay.rubychan.de/
 gem 'coderay', '~> 1.1', '>= 1.1.2'
+# A configurable and documented Rails view helper for adding gravatars into your Rails application
+gem 'gravatar_image_tag', '~> 1.2'
 
 ## Gems utilizadas com o seguinte tutorial https://github.com/RolifyCommunity/rolify/wiki/Devise---CanCanCan---rolify-Tutorial
 # The authorization Gem for Ruby on Rails.

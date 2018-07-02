@@ -3,7 +3,8 @@
     - @posts.each do |post|
       .columns.bb-not-last.pv10
         .column.is-1
-          /= gravatar_image_tag(post.user.email, class:'border-radius-50', size: 48, alt: post.user.username)
+          - @author = post.user
+          = gravatar_image_tag(@author.email, class:'border-radius-50', size: 48, alt: @author.username)
         .column.is-8
           = link_to post do
             %h3.title.is-5= post.title
@@ -16,7 +17,6 @@
                   Postado #{time_ago_in_words(post.created_at)} atrás em
                   - if @subject = post.subject
                     = link_to @subject.title, @subject
-                  - @author = post.user
                   por #{link_to @author.username, profile_path(@author.to_param), class: "has-text-black"}
         - if post_author(post) || has_role?(:admin)
           .column.has-text-right

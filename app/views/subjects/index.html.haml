@@ -13,7 +13,7 @@
   %tbody
     - @subjects.each do |subject|
       %tr
-        %td= link_to subject.title, subject
+        %td= link_to subject.title, subject, class: 'is-size-3 has-text-weight-bold'
         %td
           .buttons.is-right
             = link_to 'Visualizar', subject, class:'button'

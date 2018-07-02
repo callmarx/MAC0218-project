@@ -11,3 +11,13 @@ Subject.create(title: "Estatística", specification: "Probabilidade e estatísti
 Subject.create(title: "Álgebra", specification: "Álgebra abstrata, álgebra linear, álgebra computacional.")
 Subject.create(title: "Algoritmos", specification: "Introdução a computação, Lógica de programação, analise de algoritmos.")
 puts "criando materias basicas no banco... Feito"
+puts "Criando usuário teste@teste.com com senha 12345..."
+u = User.create!(
+  username: "Usuário Teste",
+  email: "teste@teste.com",
+  about_me: "Testaaandoooooo",
+  password: "12345",
+)
+u.add_role "admin"
+u.save
+puts "Criando usuário teste@teste.com com senha 12345... Feito"
