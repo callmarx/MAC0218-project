@@ -14,7 +14,13 @@ namespace :faker do
       User.create!(
         username: Faker::Name.name,
         email: Faker::Internet.email,
-        about_me: Faker::Simpsons.quote,
+        about_me: Faker::Markdown.headers + "\n" +
+                  Faker::Markdown.emphasis + "\n" +
+                  Faker::Markdown.headers + "\n" +
+                  Faker::Markdown.emphasis + "\n" +
+                  Faker::Markdown.headers + "\n" +
+                  Faker::Markdown.emphasis + "\n" +
+                  Faker::Markdown.unordered_list,
         password: "12345",
       )
     end
@@ -23,7 +29,15 @@ namespace :faker do
     10.times do
       Post.create!(
         title: Faker::Coffee.blend_name,
-        body: Faker::Lorem.paragraph([2,3,4,5].sample),
+        body: Faker::Markdown.headers + "\n" +
+              Faker::Markdown.emphasis + "\n" +
+              Faker::Markdown.block_code + "\n" +
+              Faker::Markdown.headers + "\n" +
+              Faker::Markdown.emphasis + "\n" +
+              Faker::Markdown.block_code + "\n" +
+              Faker::Markdown.headers + "\n" +
+              Faker::Markdown.emphasis + "\n" +
+              Faker::Markdown.unordered_list,
         post_type: ["offer", "looking"].sample,
         user: User.all.sample,
         subject: Subject.all.sample
