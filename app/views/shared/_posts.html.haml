@@ -12,10 +12,12 @@
             %p
               %em
                 %small
+                  %b= post.post_type == "offer" ? "Procura por alunos." : "Procura por professor."
                   Postado #{time_ago_in_words(post.created_at)} atrás em
-                  - if post.subject
-                    = link_to post.subject.title, post.subject
-                  por #{post.user.username}
+                  - if @subject = post.subject
+                    = link_to @subject.title, @subject
+                  - @author = post.user
+                  por #{link_to @author.username, profile_path(@author.to_param), class: "has-text-black"}
         - if post_author(post) || has_role?(:admin)
           .column.has-text-right
             = link_to 'Editar', edit_post_path(post), class:'button'

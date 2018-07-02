@@ -1,8 +1,10 @@
 .columns
   .column.is-8
     %h1.title.is-2.has-text-grey.post-title= @post.title
-    %h3.subtitle.is-5.has-text-grey-lighter
-      postado por #{@post.user.username} em #{link_to @post.subject.title, @post.subject}
+    %h3.subtitle.is-5.has-text-grey
+      - @author = @post.user
+      %b= @post.post_type == "offer" ? "Procura por alunos." : "Procura por professor."
+      Postado por #{link_to @author.username, profile_path(@author.to_param), class: "has-text-black"} em #{link_to @post.subject.title, @post.subject}.
     .level
       .level-left
       .level-right

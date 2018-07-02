@@ -1,0 +1,4 @@
+%h3.title.is-5.has-text-grey-light Postagens de #{link_to @user.username, profile_path(@user.to_param), class: "has-text-black"}
+.columns
+  = render 'shared/posts'
+  = render 'shared/sidebar'

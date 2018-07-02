@@ -10,6 +10,11 @@ class PostsController < ApplicationController
     @posts = Post.all.order('created_at desc')
   end
 
+  def user_posts
+    @user = User.friendly.find(params[:user])
+    @posts = @user.posts.order('created_at desc')
+  end
+
   def search
     @posts = Post.where("title LIKE ? OR body LIKE ?", "%#{params[:keywords]}%", "%#{params[:keywords]}%").order('created_at desc')
     @keywords = params[:keywords]

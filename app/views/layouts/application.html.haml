@@ -31,15 +31,17 @@
           .navbar-item
             .field.is-grouped
               = form_tag(search_path) do
-                = text_field_tag :keywords, params[:keywords], class: "input control", placeholder: "Pesquise nos posts..."
+                = text_field_tag :keywords, params[:keywords], class: "input control", placeholder: "Pesquise por postagens..."
           - if user_signed_in?
             .navbar-item
               .field.is-grouped
                 = link_to 'Novo Post', new_post_path, class:"button is-info"
             .navbar-item.has-dropdown.is-hoverable
-              = link_to 'Minha Conta', edit_user_registration_path, class: "navbar-link"
+              - @user = current_user
+              = link_to 'Minha Conta', profile_path(@user.to_param), class: "navbar-link"
               .navbar-dropdown.is-right
-                = link_to current_user.username, edit_user_registration_path, class:"navbar-item"
+                = link_to @user.username, profile_path(@user.to_param), class:"navbar-item"
+                = link_to "Configurações", edit_user_registration_path, class:"navbar-item"
                 = link_to "Sair", destroy_user_session_path, method: :delete, class:"navbar-item"
           - else
             .navbar-item

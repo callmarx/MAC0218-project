@@ -5,7 +5,8 @@
     .media-content
       .content
         %p
-          %strong= comment.user.username
+          - @author = comment.user
+          %strong= link_to @author.username, profile_path(@author.to_param), class: "has-text-black"
           %small= time_ago_in_words(comment.created_at)
           %br/
           = markdown(comment.body)

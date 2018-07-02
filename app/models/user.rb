@@ -6,4 +6,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable
   has_many :comments
   has_many :posts
+
+  extend FriendlyId
+  friendly_id :username, use: :slugged
 end

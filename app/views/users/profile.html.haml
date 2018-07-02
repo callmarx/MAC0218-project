@@ -1,0 +1,7 @@
+.columns
+  .column.is-8
+    %h1.title.is-2 #{@user.username}
+    %h3.subtitle.is-5.has-text-grey= link_to "Postagens", user_posts_path(@user.to_param)
+    .content= markdown(@user.about_me)
+    - if @user == current_user
+      = link_to 'Editar Perfil', edit_user_registration_path, class:'button is-dark'
