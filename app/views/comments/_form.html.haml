@@ -1,5 +1,5 @@
 = simple_form_for([@post, @post.comments.build], remote: true) do |f|
   .field
     .control
-      = f.input :body, input_html: { class: 'textarea' }, wrapper: false, label_html: { class: 'label' }, label: "Comentário"
+      = f.input :body, input_html: { class: 'textarea', id: 'comment_input'}, wrapper: false, label_html: { class: 'label' }, label: "Comentário"
   = f.button :submit, 'Comentar', class:'button is-info'
