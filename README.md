@@ -79,6 +79,11 @@ $ rails s
 ```
 Utilize o usuário **teste@teste.com** com senha **12345** para navegar na aplicação localmente.
 
+## Heroku
+
+Segue o link do herokua no qual o projeto foi apresentado em aula no dia 03/07/2018. Todos os usuários estão com a senha **12345**, o usuário **teste@teste.com** é admin.
+https://powerful-caverns-89456.herokuapp.com/
+
 
 ## Licença
 Esse projeto esta sobre a licença __GNU General Public License v3.0__ - veja o arquivo [LICENSE.md](LICENSE.md) para mais detalhes.
